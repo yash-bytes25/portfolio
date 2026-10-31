@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
-import { Mail, Github, Linkedin, FileText, ArrowUpRight, Copy, Check, Send, Terminal } from 'lucide-react';
+import { Mail, Github, Linkedin, Copy, Check, Send, ArrowUpRight } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -14,74 +14,54 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact-section"
-      className="relative min-h-screen w-full py-28 px-6 md:px-16 pointer-events-auto flex flex-col justify-between"
+      className="relative min-h-[85vh] w-full py-28 px-6 md:px-16 pointer-events-auto flex flex-col justify-between"
     >
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-lab pb-6 mb-16">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-signal-orange font-mono text-xs font-bold">[05]</span>
-              <span className="font-mono text-xs uppercase tracking-widest text-muted-steel">
-                // TRANSMISSION & CONNECTION
-              </span>
-            </div>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-warm-white">
-              Initiate <span className="text-signal-orange">Connection</span>
-            </h2>
-          </div>
-          <div className="max-w-md p-3.5 border border-lab bg-surface-dark/85 backdrop-blur-md">
-            <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
-              Open to technical conversations, ambitious software engineering internships, hackathon team formations, and systems collaborations.
-            </p>
-          </div>
+        <div className="mb-16 pb-6 border-b border-white/[0.08]">
+          <span className="text-xs font-sans text-neutral-400 font-medium tracking-wide block mb-2">
+            Get in Touch
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-3">
+            Contact
+          </h2>
+          <p className="text-sm sm:text-base text-neutral-400 max-w-xl font-normal leading-relaxed">
+            I am always open to discussing software engineering opportunities, internships, hackathon collaborations, or technical projects.
+          </p>
         </div>
 
-        {/* Transmission Terminal Panel */}
+        {/* Main Contact Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
-          {/* Main Transmission Card */}
-          <div className="lg:col-span-8 lab-panel tech-corners p-8 md:p-12 flex flex-col justify-between">
+          {/* Email Action Card */}
+          <div className="lg:col-span-8 bg-[#13161c] border border-white/[0.08] rounded-xl p-8 md:p-12 flex flex-col justify-between shadow-2xl">
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-lab mb-8">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-signal-orange animate-pulse" />
-                  <span className="font-mono text-xs text-warm-white uppercase tracking-widest">
-                    PRIMARY TRANSMISSION CHANNEL ACTIVE
-                  </span>
-                </div>
-                <span className="font-mono text-xs text-muted-steel">
-                  {PERSONAL_INFO.timezone}
-                </span>
-              </div>
-
-              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-warm-white mb-4 leading-tight">
-                Let&rsquo;s engineer reliable, high-impact systems together.
+              <h3 className="text-2xl sm:text-3xl font-medium text-white mb-4">
+                Have an opportunity or an interesting project?
               </h3>
-
-              <p className="text-sm font-sans text-muted-steel leading-relaxed mb-8 max-w-xl">
-                Whether you want to discuss deterministic rule engines, agricultural supply chain platforms, computer science fundamentals, or explore an engineering internship opportunity, my inbox is always open.
+              <p className="text-sm sm:text-base text-neutral-400 mb-8 max-w-lg leading-relaxed font-normal">
+                Feel free to reach out via email. I will get back to you as soon as possible.
               </p>
 
-              {/* Interactive Email Bar */}
-              <div className="p-4 border border-lab bg-surface-dark flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+              {/* Email Copier */}
+              <div className="p-4 rounded-lg bg-white/[0.03] border border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
                 <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-signal-orange shrink-0" />
-                  <span className="font-mono text-xs sm:text-sm text-warm-white tracking-wide">
+                  <Mail className="w-4 h-4 text-orange-400 shrink-0" />
+                  <span className="text-sm sm:text-base text-white font-mono">
                     {PERSONAL_INFO.email}
                   </span>
                 </div>
                 <button
                   onClick={copyEmail}
-                  className="flex items-center gap-2 px-3 py-1.5 border border-lab hover:border-signal-orange bg-surface-raised/60 text-xs font-mono text-warm-white hover:text-signal-orange transition-all w-full sm:w-auto justify-center"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/10 hover:border-white/20 bg-white/[0.02] text-xs text-neutral-300 hover:text-white transition-all w-full sm:w-auto justify-center"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-signal-orange" />
-                      <span>Copied Address</span>
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Copied</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-muted-steel" />
+                      <Copy className="w-3.5 h-3.5 text-neutral-400" />
                       <span>Copy Email</span>
                     </>
                   )}
@@ -89,13 +69,13 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-lab-subtle">
+            {/* Direct Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/[0.06]">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="flex items-center gap-2.5 px-6 py-3 border border-signal-orange bg-signal-orange text-deep-black hover:bg-signal-orange/90 font-mono text-xs uppercase tracking-wider font-semibold transition-colors"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-md bg-white text-neutral-950 hover:bg-neutral-200 text-xs font-medium transition-all"
               >
-                <span>Compose Direct Email</span>
+                <span>Compose Email</span>
                 <Send className="w-3.5 h-3.5" />
               </a>
 
@@ -103,9 +83,9 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-3 border border-lab bg-surface-dark hover:border-muted-steel text-warm-white font-mono text-xs uppercase tracking-wider transition-colors"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-white/10 hover:border-white/25 bg-white/[0.02] text-xs text-neutral-300 hover:text-white transition-all"
               >
-                <Github className="w-4 h-4 text-muted-steel" />
+                <Github className="w-4 h-4 text-neutral-400" />
                 <span>GitHub Profile</span>
               </a>
 
@@ -113,77 +93,63 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-3 border border-lab bg-surface-dark hover:border-muted-steel text-warm-white font-mono text-xs uppercase tracking-wider transition-colors"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-white/10 hover:border-white/25 bg-white/[0.02] text-xs text-neutral-300 hover:text-white transition-all"
               >
-                <Linkedin className="w-4 h-4 text-muted-steel" />
+                <Linkedin className="w-4 h-4 text-neutral-400" />
                 <span>LinkedIn</span>
               </a>
             </div>
           </div>
 
-          {/* Side Telemetry & Institutional Identity */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            <div className="lab-panel p-6 border-lab flex-1">
-              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-lab">
-                <Terminal className="w-3.5 h-3.5 text-signal-orange" />
-                <span className="font-mono text-xs uppercase tracking-widest text-warm-white">
-                  IDENTITY & LOCATION
-                </span>
+          {/* Quick Context Card */}
+          <div className="lg:col-span-4 flex flex-col justify-between gap-6">
+            <div className="bg-[#13161c] border border-white/[0.08] rounded-xl p-6 space-y-4 text-xs text-neutral-400 shadow-xl">
+              <h4 className="text-sm font-medium text-white">
+                Details
+              </h4>
+              <div>
+                <span className="block text-neutral-500 text-[11px]">Name</span>
+                <span className="text-neutral-200">{PERSONAL_INFO.name}</span>
               </div>
-              <div className="space-y-4 text-xs font-mono">
-                <div>
-                  <span className="text-muted-steel block text-[10px] uppercase">CANDIDATE</span>
-                  <span className="text-warm-white font-semibold">{PERSONAL_INFO.name}</span>
-                </div>
-                <div>
-                  <span className="text-muted-steel block text-[10px] uppercase">INSTITUTION</span>
-                  <span className="text-warm-white">{PERSONAL_INFO.college}</span>
-                </div>
-                <div>
-                  <span className="text-muted-steel block text-[10px] uppercase">PROGRAM & STANDING</span>
-                  <span className="text-warm-white">{PERSONAL_INFO.degree}</span>
-                  <span className="block text-signal-orange">{PERSONAL_INFO.academicYear} (CGPA: {PERSONAL_INFO.cgpa})</span>
-                </div>
-                <div>
-                  <span className="text-muted-steel block text-[10px] uppercase">GEOGRAPHIC BASE</span>
-                  <span className="text-warm-white">{PERSONAL_INFO.location}</span>
-                </div>
+              <div>
+                <span className="block text-neutral-500 text-[11px]">Academic Institution</span>
+                <span className="text-neutral-200">{PERSONAL_INFO.college}</span>
+              </div>
+              <div>
+                <span className="block text-neutral-500 text-[11px]">Standing</span>
+                <span className="text-neutral-200">{PERSONAL_INFO.degree} • {PERSONAL_INFO.academicYear}</span>
+              </div>
+              <div>
+                <span className="block text-neutral-500 text-[11px]">Location</span>
+                <span className="text-neutral-200">{PERSONAL_INFO.location}</span>
               </div>
             </div>
 
-            <div className="lab-panel p-6 border-lab">
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-xs uppercase tracking-widest text-warm-white">
-                  CURRICULUM VITAE
-                </span>
-                <FileText className="w-4 h-4 text-signal-orange" />
-              </div>
-              <p className="text-xs font-sans text-muted-steel leading-relaxed mb-4">
-                Structured technical resume outlining projects, coursework, hackathons, and systems experience.
+            <div className="bg-[#13161c] border border-white/[0.08] rounded-xl p-6 shadow-xl">
+              <h4 className="text-sm font-medium text-white mb-2">
+                Resume
+              </h4>
+              <p className="text-xs text-neutral-400 mb-4 leading-relaxed font-normal">
+                A formal summary of academic coursework, projects, hackathons, and technical experience.
               </p>
               <a
-                href="#contact-section"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("Resume document available upon request via direct transmission: " + PERSONAL_INFO.email);
-                }}
-                className="inline-flex items-center justify-between w-full px-4 py-2 border border-lab hover:border-signal-orange bg-surface-dark font-mono text-xs text-warm-white hover:text-signal-orange transition-all"
+                href={`mailto:${PERSONAL_INFO.email}?subject=Resume%20Request%20-%20Yaswanth`}
+                className="inline-flex items-center justify-between w-full px-3 py-2 rounded-md border border-white/10 hover:border-white/25 bg-white/[0.02] text-xs text-neutral-300 hover:text-white transition-all"
               >
-                <span>Request Formal Resume</span>
+                <span>Request Resume</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
         </div>
 
-        {/* Technical Colophon & Footer */}
-        <div className="pt-8 border-t border-lab flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted-steel">
-          <div className="flex items-center gap-3">
-            <span className="w-1.5 h-1.5 bg-signal-orange" />
-            <span>INTERACTIVE ENGINEERING LAB // YASWANTH</span>
+        {/* Minimal Footer */}
+        <div className="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+          <div>
+            Yaswanth • B.Tech Computer Science and Engineering
           </div>
           <div>
-            <span>SYSTEM REVISION: 2.0 // THREE.JS + R3F + GSAP</span>
+            Built with React, Three.js & Tailwind CSS
           </div>
         </div>
       </div>

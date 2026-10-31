@@ -4,40 +4,33 @@ import { Environment } from '@react-three/drei';
 export const StudioLighting: React.FC = () => {
   return (
     <>
-      {/* Deep laboratory baseline ambient light */}
-      <ambientLight intensity={0.4} color="#101214" />
+      {/* Soft atmospheric ambient light */}
+      <ambientLight intensity={0.5} color="#0d0f12" />
 
-      {/* Main Specular Key Light (Warm White) */}
+      {/* Primary Key Specular Light (Crisp, warm white) */}
       <directionalLight
         position={[6, 8, 5]}
-        intensity={2.8}
-        color="#F1F0EA"
+        intensity={2.4}
+        color="#fafaf9"
       />
 
-      {/* Rim / Silhouette Separator (Muted Steel) */}
+      {/* Soft Silhouette Rim Light (Muted slate) */}
       <directionalLight
         position={[-6, -2, -4]}
-        intensity={1.8}
-        color="#8C9298"
+        intensity={1.2}
+        color="#94a3b8"
       />
 
-      {/* Signal Orange Technical Accent Light (Diagnostic Core Glow) */}
+      {/* Gentle Warm Core Accent Light */}
       <pointLight
         position={[0, 0, 0]}
-        intensity={2.0}
-        color="#FF5A1F"
-        distance={6}
+        intensity={1.2}
+        color="#ea580c"
+        distance={5}
         decay={2}
       />
 
-      {/* Secondary Fill Light */}
-      <directionalLight
-        position={[0, 6, -2]}
-        intensity={0.8}
-        color="#495057"
-      />
-
-      {/* Studio HDRI for realistic PBR metal reflections */}
+      {/* Studio reflections for realistic metal clearcoat */}
       <Environment preset="studio" />
     </>
   );

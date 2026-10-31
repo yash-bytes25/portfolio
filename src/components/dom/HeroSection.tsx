@@ -1,114 +1,70 @@
 import React from 'react';
-import { ArrowDown, ArrowUpRight, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
 export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen w-full flex flex-col justify-between pt-28 pb-10 px-6 md:px-16 pointer-events-auto"
+      className="relative min-h-[92vh] w-full flex flex-col justify-between pt-36 pb-12 px-6 md:px-16 pointer-events-auto"
     >
-      {/* Top Telemetry & Status Rail */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-lab pb-4">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 bg-signal-orange animate-pulse" />
-          <span className="font-mono text-xs text-muted-steel tracking-wider uppercase">
-            STATUS: ACTIVE // {PERSONAL_INFO.college}
-          </span>
-        </div>
-        <div className="flex items-center gap-5 text-xs font-mono text-muted-steel">
-          <span>{PERSONAL_INFO.degree}</span>
-          <span className="hidden sm:inline text-muted-steel/40">/</span>
-          <span className="text-warm-white font-medium">{PERSONAL_INFO.academicYear}</span>
-          <span className="hidden sm:inline text-muted-steel/40">/</span>
-          <span>CGPA: <strong className="text-signal-orange">{PERSONAL_INFO.cgpa}</strong></span>
-        </div>
-      </div>
-
-      {/* Main Asymmetric Editorial Showcase */}
-      <div className="my-auto py-10 md:py-16 max-w-3xl z-20">
-        {/* Lab System Subtitle Badge */}
-        <div className="inline-flex items-center gap-2.5 mb-6 px-3 py-1 border border-lab bg-surface-dark/80">
-          <Terminal className="w-3.5 h-3.5 text-signal-orange" />
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-steel">
-            EXP-LAB // <span className="text-warm-white">{PERSONAL_INFO.labDesignation}</span>
-          </span>
-        </div>
-
-        {/* Primary Identity Headline */}
-        <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl tracking-tight uppercase leading-[0.92] text-warm-white">
-          {PERSONAL_INFO.name}
-        </h1>
-
-        {/* Role Specifier */}
-        <div className="mt-4 flex items-center gap-3">
-          <span className="text-signal-orange font-mono text-sm sm:text-base font-bold tracking-widest">
-            [01]
-          </span>
-          <h2 className="font-mono text-sm sm:text-lg md:text-xl font-semibold tracking-wider uppercase text-warm-white/90">
-            {PERSONAL_INFO.tagline}
-          </h2>
-        </div>
-
-        {/* Concise Statement */}
-        <p className="mt-6 text-base sm:text-lg md:text-xl font-normal text-muted-steel max-w-xl leading-relaxed">
-          {PERSONAL_INFO.bio}
-        </p>
-
-        {/* Navigation & Action Buttons */}
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href="#projects-section"
-            className="group flex items-center gap-3 px-6 py-3 border border-signal-orange bg-signal-orange/10 hover:bg-signal-orange text-warm-white hover:text-deep-black transition-all font-mono text-xs uppercase tracking-widest font-semibold"
-          >
-            <span>Inspect Projects</span>
-            <span className="text-signal-orange group-hover:text-deep-black">[03]</span>
-          </a>
-
-          <a
-            href={PERSONAL_INFO.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-2.5 px-5 py-3 border border-lab bg-surface-dark hover:border-muted-steel text-warm-white hover:text-warm-white transition-all font-mono text-xs uppercase tracking-widest"
-          >
-            <span>GitHub</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-muted-steel group-hover:text-signal-orange transition-colors" />
-          </a>
-        </div>
-
-        {/* Verified Technical Badges */}
-        <div className="mt-8 flex flex-wrap gap-2 text-[11px] font-mono text-muted-steel">
-          <span className="px-2.5 py-1 border border-lab bg-surface-dark">
-            Smart India Hackathon 2026 Internal Selection
-          </span>
-          <span className="px-2.5 py-1 border border-lab bg-surface-dark">
-            Dual-Engine Governance Systems
-          </span>
-          <span className="px-2.5 py-1 border border-lab bg-surface-dark">
-            Applied AI & Practical Problem Solving
-          </span>
-        </div>
-      </div>
-
-      {/* Bottom Telemetry & Scroll Anchor */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pt-4 border-t border-lab z-20">
-        <div className="max-w-md">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-signal-orange block mb-1">
-            CORE PHILOSOPHY
-          </span>
-          <p className="text-xs text-muted-steel leading-relaxed font-sans">
-            {PERSONAL_INFO.statement}
-          </p>
-        </div>
-
-        <a
-          href="#journey-section"
-          className="group flex items-center gap-3 text-xs font-mono text-muted-steel hover:text-warm-white tracking-widest uppercase transition-colors"
-        >
-          <span>Scroll to Inspect Engineering Log</span>
-          <div className="w-7 h-7 border border-lab flex items-center justify-center group-hover:border-signal-orange group-hover:translate-y-0.5 transition-all">
-            <ArrowDown className="w-3.5 h-3.5 text-signal-orange" />
+      <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center">
+        <div className="max-w-2xl z-20">
+          {/* Subtle discipline tag */}
+          <div className="inline-block text-xs font-sans tracking-wide text-neutral-400 mb-6 font-medium">
+            Computer Science & Engineering • B.Tech
           </div>
+
+          {/* Natural, prominent heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white leading-[1.15] mb-6 drop-shadow-md">
+            Hi, I&rsquo;m <span className="font-serif italic font-normal text-white">Yaswanth</span>.
+          </h1>
+
+          {/* Clean, human introduction */}
+          <p className="text-lg sm:text-xl text-neutral-200 font-normal leading-relaxed mb-4 drop-shadow-md">
+            A computer science student exploring AI/ML, software engineering, and practical problem-solving.
+          </p>
+
+          <p className="text-base text-neutral-300 font-normal leading-relaxed mb-8 max-w-lg drop-shadow-md">
+            I enjoy building software, learning through implementation, and turning ideas into useful products.
+          </p>
+
+          {/* Actions */}
+          <div className="flex flex-wrap items-center gap-4 mb-10">
+            <a
+              href="#projects-section"
+              className="px-5 py-2.5 rounded-md bg-white text-neutral-950 hover:bg-neutral-200 text-sm font-medium transition-all shadow-sm"
+            >
+              Explore Projects
+            </a>
+
+            <a
+              href={PERSONAL_INFO.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-white/15 hover:border-white/30 bg-white/[0.02] text-sm text-neutral-300 hover:text-white transition-all"
+            >
+              <span>GitHub</span>
+              <ArrowUpRight className="w-4 h-4 text-neutral-400" />
+            </a>
+          </div>
+
+          {/* Academic context note */}
+          <div className="pt-6 border-t border-white/[0.08] text-xs text-neutral-500 font-sans">
+            SRKR Engineering College • Second Year, First Semester • CGPA 7.0
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom scroll hint */}
+      <div className="max-w-6xl mx-auto w-full flex items-center justify-between text-xs text-neutral-500 pt-6">
+        <span className="hidden sm:inline">Based in Andhra Pradesh, India</span>
+        <a
+          href="#about-section"
+          className="flex items-center gap-2 hover:text-neutral-300 transition-colors"
+        >
+          <span>Scroll down</span>
+          <ArrowDown className="w-3.5 h-3.5 text-neutral-500" />
         </a>
       </div>
     </section>

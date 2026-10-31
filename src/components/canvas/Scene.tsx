@@ -24,7 +24,7 @@ class WebGLErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.warn('WebGL Rendering Encountered an Issue:', error, errorInfo);
+    console.warn('WebGL Rendering Notice:', error, errorInfo);
   }
 
   render() {
@@ -39,7 +39,6 @@ export const Scene: React.FC = () => {
   const [dpr, setDpr] = useState<[number, number]>([1, 1.5]);
 
   useEffect(() => {
-    // Adapt DPR based on device to guarantee 60fps across mobile and desktop
     const updateDpr = () => {
       const isMobile = window.innerWidth < 768;
       const maxDpr = isMobile ? 1.25 : Math.min(window.devicePixelRatio || 1, 1.8);
@@ -50,7 +49,6 @@ export const Scene: React.FC = () => {
     window.addEventListener('resize', updateDpr, { passive: true });
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Normalize mouse coordinates from -1 to 1
       mouseState.targetX = (e.clientX / window.innerWidth) * 2 - 1;
       mouseState.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
     };
@@ -62,28 +60,21 @@ export const Scene: React.FC = () => {
     };
   }, []);
 
-  // Technical laboratory fallback when WebGL is unavailable
-  const fallbackLabSchematic = (
-    <div className="fixed inset-0 pointer-events-none z-10 flex items-center justify-center opacity-30">
-      <div className="w-80 h-80 rounded-full border border-[#8C9298]/30 flex items-center justify-center relative animate-pulse-subtle">
-        <div className="absolute inset-4 rounded-full border border-dashed border-[#FF5A1F]/40" />
-        <div className="absolute w-full h-[1px] bg-[#8C9298]/20" />
-        <div className="absolute h-full w-[1px] bg-[#8C9298]/20" />
-        <div className="w-20 h-20 border border-[#FF5A1F] rotate-45 flex items-center justify-center">
-          <div className="w-2 h-2 bg-[#FF5A1F]" />
-        </div>
-        <div className="absolute bottom-2 right-2 font-mono text-[10px] text-[#8C9298]">
-          [SCHEMATIC_FALLBACK_ACTIVE]
-        </div>
+  // Minimal aesthetic fallback if WebGL is unsupported
+  const fallbackSculpture = (
+    <div className="fixed inset-0 pointer-events-none z-10 flex items-center justify-center opacity-20">
+      <div className="w-72 h-72 rounded-full border border-white/10 flex items-center justify-center relative">
+        <div className="w-48 h-48 rounded-full border border-white/15" />
+        <div className="w-24 h-24 rounded-full border border-white/20" />
       </div>
     </div>
   );
 
   return (
     <div className="fixed inset-0 pointer-events-none z-10 w-full h-full overflow-hidden">
-      <WebGLErrorBoundary fallback={fallbackLabSchematic}>
+      <WebGLErrorBoundary fallback={fallbackSculpture}>
         <Canvas
-          camera={{ position: [0, 0, 5.8], fov: 40 }}
+          camera={{ position: [0, 0, 5.6], fov: 40 }}
           dpr={dpr}
           gl={{
             antialias: true,
