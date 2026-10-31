@@ -10,29 +10,24 @@ import { GrainOverlay } from './components/dom/GrainOverlay';
 import { useScrollExperience } from './hooks/useScrollExperience';
 
 export const App: React.FC = () => {
-  // Initialize GSAP scroll-driven 3D coordinates
+  // Initialize GSAP scroll choreography for persistent 3D laboratory scene
   useScrollExperience();
 
   return (
-    <div className="relative min-h-screen bg-[#060608] text-[#e2e5eb] selection:bg-[#c7ccd6] selection:text-[#060608] font-sans">
-      {/* Film grain and atmospheric vignette */}
+    <div className="relative min-h-screen bg-graphite lab-grid-bg text-warm-white selection:bg-signal-orange selection:text-deep-black font-sans antialiased overflow-x-hidden">
+      {/* Analog film grain overlay */}
       <GrainOverlay />
 
       {/* Persistent 3D R3F Canvas */}
       <Scene />
 
-      {/* Navigation */}
+      {/* Laboratory Instrument Navigation Bar */}
       <Navbar />
 
-      {/* Main Editorial Content Layers */}
+      {/* Editorial Content Layers */}
       <main className="relative z-20">
         <HeroSection />
-        
-        {/* About Anchor linking to Journey */}
-        <div id="about-section" className="scroll-mt-24">
-          <JourneySection />
-        </div>
-
+        <JourneySection />
         <ProjectsSection />
         <SkillsSection />
         <ContactSection />
@@ -42,4 +37,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-

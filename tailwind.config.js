@@ -7,28 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#060608",
-        surface: "#0d0d12",
-        "surface-light": "#15151e",
-        border: "#20202a",
-        "border-light": "#2e2e3d",
-        chrome: {
-          50: "#fafafa",
-          100: "#f0f2f5",
-          200: "#e2e5eb",
-          300: "#c7ccd6",
-          400: "#9ba3b4",
-          500: "#6e778a",
-          600: "#4b5364",
-          700: "#323844",
-          800: "#1e222a",
-          900: "#0f1115",
+        graphite: "#101214",
+        "deep-black": "#08090A",
+        "warm-white": "#F1F0EA",
+        "muted-steel": "#8C9298",
+        "signal-orange": "#FF5A1F",
+        background: "#101214",
+        surface: "#14171a",
+        "surface-dark": "#0c0e10",
+        "surface-raised": "#1a1e22",
+        border: "rgba(140, 146, 152, 0.16)",
+        "border-subtle": "rgba(140, 146, 152, 0.08)",
+        "border-bright": "rgba(140, 146, 152, 0.32)",
+        "border-orange": "rgba(255, 90, 31, 0.4)",
+        steel: {
+          100: "#F1F0EA",
+          200: "#d9dcd6",
+          300: "#b5bac0",
+          400: "#8C9298",
+          500: "#697077",
+          600: "#495057",
+          700: "#2d3339",
+          800: "#1a1e22",
+          900: "#101214",
         },
-        accent: {
-          DEFAULT: "#e2b714", // Titanium warm gold/amber accent used very sparingly
-          cyan: "#38bdf8",
-          orange: "#ff5e3a",
-        }
       },
       fontFamily: {
         sans: ['"Space Grotesk"', 'sans-serif'],
@@ -40,9 +42,13 @@ export default {
         tight: "-0.02em",
         widest: "0.25em",
         ultra: "0.35em",
+      },
+      animation: {
+        'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     },
   },
   plugins: [],
 }
+
 

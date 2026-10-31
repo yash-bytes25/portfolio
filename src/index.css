@@ -6,10 +6,10 @@
   color-scheme: dark;
 }
 
-/* Chrome / Cinematic Global Overrides */
+/* Engineering Laboratory Global Baseline */
 html {
-  background-color: #060608;
-  color: #e2e5eb;
+  background-color: #101214;
+  color: #F1F0EA;
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   scroll-behavior: smooth;
 }
@@ -18,29 +18,103 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #060608;
+  background-color: #101214;
   user-select: text;
+  color: #F1F0EA;
 }
 
-/* Custom Scrollbar for high-end feel */
+/* Subtle Technical Grid Background */
+.lab-grid-bg {
+  background-color: #101214;
+  background-image: 
+    linear-gradient(to right, rgba(140, 146, 152, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(140, 146, 152, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Precision Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #060608;
+  background: #08090A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #252830;
-  border-radius: 2px;
+  background: #2d3339;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #474d5c;
+  background: #FF5A1F;
 }
 
-/* Subtle Film Grain Shader Overlay */
+/* Laboratory Panel (No generic rounded glass, sharp and precise) */
+.lab-panel {
+  background: rgba(16, 18, 20, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(140, 146, 152, 0.16);
+  position: relative;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.lab-panel:hover {
+  border-color: rgba(140, 146, 152, 0.35);
+  background: rgba(20, 23, 26, 0.94);
+}
+
+.lab-panel-active {
+  border-color: rgba(255, 90, 31, 0.45);
+  background: rgba(22, 24, 28, 0.95);
+}
+
+/* Precision Crosshairs & Corner Ticks */
+.tech-corners {
+  position: relative;
+}
+
+.tech-corners::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid rgba(255, 90, 31, 0.7);
+  border-left: 1.5px solid rgba(255, 90, 31, 0.7);
+  pointer-events: none;
+}
+
+.tech-corners::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-bottom: 1.5px solid rgba(255, 90, 31, 0.7);
+  border-right: 1.5px solid rgba(255, 90, 31, 0.7);
+  pointer-events: none;
+}
+
+/* Subtle Steel Hairlines */
+.border-lab {
+  border-width: 1px;
+  border-color: rgba(140, 146, 152, 0.16);
+}
+
+.border-lab-subtle {
+  border-width: 1px;
+  border-color: rgba(140, 146, 152, 0.08);
+}
+
+.border-lab-orange {
+  border-width: 1px;
+  border-color: rgba(255, 90, 31, 0.35);
+}
+
+/* Subtle Grain Overlay for cinematic analog laboratory depth */
 .grain-overlay {
   position: fixed;
   top: 0;
@@ -49,80 +123,16 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: 999;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Chrome Text Gradient */
-.text-chrome {
-  background: linear-gradient(135deg, #ffffff 0%, #d8dde6 35%, #7a8292 70%, #d8dde6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Precision status blinker */
+@keyframes signalBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
 }
 
-.text-chrome-bright {
-  background: linear-gradient(180deg, #ffffff 0%, #cbd2df 60%, #8f98a8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.animate-signal {
+  animation: signalBlink 2.2s ease-in-out infinite;
 }
-
-.text-chrome-muted {
-  background: linear-gradient(180deg, #9da4b3 0%, #5d6371 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Fine hairline borders */
-.border-hairline {
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.border-hairline-bright {
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.16);
-}
-
-/* Subtle glass/metal backing without generic blur */
-.chrome-card {
-  background: rgba(13, 13, 18, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.chrome-card:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(18, 18, 25, 0.85);
-}
-
-/* Corner bracket accents for editorial technical aesthetic */
-.tech-bracket {
-  position: relative;
-}
-
-.tech-bracket::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 8px;
-  height: 8px;
-  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
-  border-left: 1.5px solid rgba(255, 255, 255, 0.4);
-  pointer-events: none;
-}
-
-.tech-bracket::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 8px;
-  height: 8px;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
-  border-right: 1.5px solid rgba(255, 255, 255, 0.4);
-  pointer-events: none;
-}
-

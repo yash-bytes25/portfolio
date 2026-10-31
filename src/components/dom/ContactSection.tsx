@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
-import { Mail, Github, Linkedin, FileText, ArrowUpRight, Copy, Check, Globe, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, FileText, ArrowUpRight, Copy, Check, Send, Terminal } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -18,210 +18,175 @@ export const ContactSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-lab pb-6 mb-16">
           <div>
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-400">
-                05 // TRANSMISSION & NETWORK
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-signal-orange font-mono text-xs font-bold">[05]</span>
+              <span className="font-mono text-xs uppercase tracking-widest text-muted-steel">
+                // TRANSMISSION & CONNECTION
               </span>
             </div>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-white">
-              Initiate <span className="text-chrome">Contact</span>
+            <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-warm-white">
+              Initiate <span className="text-signal-orange">Connection</span>
             </h2>
           </div>
-          <div className="max-w-md">
-            <p className="text-sm font-sans text-zinc-400 leading-relaxed">
-              Open for software engineering internships, technical collaborations, and demanding engineering challenges at ambitious technology teams.
+          <div className="max-w-md p-3.5 border border-lab bg-surface-dark/85 backdrop-blur-md">
+            <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+              Open to technical conversations, ambitious software engineering internships, hackathon team formations, and systems collaborations.
             </p>
           </div>
         </div>
 
-        {/* Main Transmission Card */}
+        {/* Transmission Terminal Panel */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
-          {/* Direct Communication Terminal */}
-          <div className="lg:col-span-7 chrome-card tech-bracket p-8 md:p-12 rounded-lg border border-white/[0.1] bg-[#0c0d13]/85 flex flex-col justify-between">
+          {/* Main Transmission Card */}
+          <div className="lg:col-span-8 lab-panel tech-corners p-8 md:p-12 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-8">
-                <div className="flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="font-mono text-xs text-zinc-300 uppercase tracking-widest">
-                    DIRECT CHANNEL READY
+              <div className="flex items-center justify-between pb-4 border-b border-lab mb-8">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-signal-orange animate-pulse" />
+                  <span className="font-mono text-xs text-warm-white uppercase tracking-widest">
+                    PRIMARY TRANSMISSION CHANNEL ACTIVE
                   </span>
                 </div>
-                <span className="font-mono text-xs text-zinc-400">
+                <span className="font-mono text-xs text-muted-steel">
                   {PERSONAL_INFO.timezone}
                 </span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-                Let&rsquo;s engineer something impactful together.
+              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-warm-white mb-4 leading-tight">
+                Let&rsquo;s engineer reliable, high-impact systems together.
               </h3>
 
-              <p className="text-sm sm:text-base font-sans text-zinc-400 leading-relaxed mb-8 max-w-xl">
-                Whether discussing deterministic systems, AI governance frameworks, hackathon collaborations, or engineering internship opportunities, my transmission line is always open.
+              <p className="text-sm font-sans text-muted-steel leading-relaxed mb-8 max-w-xl">
+                Whether you want to discuss deterministic rule engines, agricultural supply chain platforms, computer science fundamentals, or explore an engineering internship opportunity, my inbox is always open.
               </p>
 
-              {/* Email interaction bar */}
-              <div className="p-4 rounded border border-white/[0.12] bg-white/[0.02] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+              {/* Interactive Email Bar */}
+              <div className="p-4 border border-lab bg-surface-dark flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-zinc-400 shrink-0" />
-                  <span className="font-mono text-sm sm:text-base text-white tracking-wide">
+                  <Mail className="w-4 h-4 text-signal-orange shrink-0" />
+                  <span className="font-mono text-xs sm:text-sm text-warm-white tracking-wide">
                     {PERSONAL_INFO.email}
                   </span>
                 </div>
                 <button
                   onClick={copyEmail}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded border border-white/20 hover:border-white/40 bg-white/[0.04] text-xs font-mono text-zinc-300 hover:text-white transition-all w-full sm:w-auto justify-center"
+                  className="flex items-center gap-2 px-3 py-1.5 border border-lab hover:border-signal-orange bg-surface-raised/60 text-xs font-mono text-warm-white hover:text-signal-orange transition-all w-full sm:w-auto justify-center"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>Copied to Clipboard</span>
+                      <Check className="w-3.5 h-3.5 text-signal-orange" />
+                      <span>Copied Address</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span>Copy Address</span>
+                      <Copy className="w-3.5 h-3.5 text-muted-steel" />
+                      <span>Copy Email</span>
                     </>
                   )}
                 </button>
               </div>
             </div>
 
-            {/* Quick action buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/[0.06]">
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-lab-subtle">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="flex items-center gap-2 px-6 py-3 rounded border border-white bg-white text-[#060608] hover:bg-zinc-200 transition-colors font-mono text-xs uppercase tracking-wider font-semibold"
+                className="flex items-center gap-2.5 px-6 py-3 border border-signal-orange bg-signal-orange text-deep-black hover:bg-signal-orange/90 font-mono text-xs uppercase tracking-wider font-semibold transition-colors"
               >
-                <span>Compose Email</span>
+                <span>Compose Direct Email</span>
                 <Send className="w-3.5 h-3.5" />
               </a>
 
               <a
-                href="#hero-section"
-                className="flex items-center gap-2 px-6 py-3 rounded border border-white/20 hover:border-white/40 bg-white/[0.03] text-zinc-300 hover:text-white transition-colors font-mono text-xs uppercase tracking-wider"
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-3 border border-lab bg-surface-dark hover:border-muted-steel text-warm-white font-mono text-xs uppercase tracking-wider transition-colors"
               >
-                <span>Back to Zenith</span>
+                <Github className="w-4 h-4 text-muted-steel" />
+                <span>GitHub Profile</span>
+              </a>
+
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-3 border border-lab bg-surface-dark hover:border-muted-steel text-warm-white font-mono text-xs uppercase tracking-wider transition-colors"
+              >
+                <Linkedin className="w-4 h-4 text-muted-steel" />
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
 
-          {/* Social Profiles & Resume Links */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            {/* GitHub Card */}
-            <a
-              href={PERSONAL_INFO.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="chrome-card p-6 rounded-lg border border-white/[0.08] hover:border-white/25 transition-all group flex items-center justify-between"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded border border-white/10 bg-white/[0.03] flex items-center justify-center group-hover:border-white/30 transition-colors">
-                  <Github className="w-5 h-5 text-zinc-300 group-hover:text-white" />
+          {/* Side Telemetry & Institutional Identity */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="lab-panel p-6 border-lab flex-1">
+              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-lab">
+                <Terminal className="w-3.5 h-3.5 text-signal-orange" />
+                <span className="font-mono text-xs uppercase tracking-widest text-warm-white">
+                  IDENTITY & LOCATION
+                </span>
+              </div>
+              <div className="space-y-4 text-xs font-mono">
+                <div>
+                  <span className="text-muted-steel block text-[10px] uppercase">CANDIDATE</span>
+                  <span className="text-warm-white font-semibold">{PERSONAL_INFO.name}</span>
                 </div>
                 <div>
-                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest block">
-                    CODE REPOSITORY
-                  </span>
-                  <h4 className="font-display text-lg font-bold text-white group-hover:text-chrome transition-colors">
-                    GitHub Profile
-                  </h4>
-                  <span className="font-mono text-xs text-zinc-400">
-                    {PERSONAL_INFO.github.replace('https://github.com/', '@')}
-                  </span>
+                  <span className="text-muted-steel block text-[10px] uppercase">INSTITUTION</span>
+                  <span className="text-warm-white">{PERSONAL_INFO.college}</span>
+                </div>
+                <div>
+                  <span className="text-muted-steel block text-[10px] uppercase">PROGRAM & STANDING</span>
+                  <span className="text-warm-white">{PERSONAL_INFO.degree}</span>
+                  <span className="block text-signal-orange">{PERSONAL_INFO.academicYear} (CGPA: {PERSONAL_INFO.cgpa})</span>
+                </div>
+                <div>
+                  <span className="text-muted-steel block text-[10px] uppercase">GEOGRAPHIC BASE</span>
+                  <span className="text-warm-white">{PERSONAL_INFO.location}</span>
                 </div>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-            </a>
+            </div>
 
-            {/* LinkedIn Card */}
-            <a
-              href={PERSONAL_INFO.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="chrome-card p-6 rounded-lg border border-white/[0.08] hover:border-white/25 transition-all group flex items-center justify-between"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded border border-white/10 bg-white/[0.03] flex items-center justify-center group-hover:border-white/30 transition-colors">
-                  <Linkedin className="w-5 h-5 text-zinc-300 group-hover:text-white" />
-                </div>
-                <div>
-                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest block">
-                    PROFESSIONAL NETWORK
-                  </span>
-                  <h4 className="font-display text-lg font-bold text-white group-hover:text-chrome transition-colors">
-                    LinkedIn Network
-                  </h4>
-                  <span className="font-mono text-xs text-zinc-400">
-                    {PERSONAL_INFO.linkedin.replace('https://linkedin.com/', '')}
-                  </span>
-                </div>
+            <div className="lab-panel p-6 border-lab">
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-mono text-xs uppercase tracking-widest text-warm-white">
+                  CURRICULUM VITAE
+                </span>
+                <FileText className="w-4 h-4 text-signal-orange" />
               </div>
-              <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-            </a>
-
-            {/* Resume Dossier Card */}
-            <div className="chrome-card p-6 rounded-lg border border-white/[0.08] hover:border-white/25 transition-all group flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded border border-white/10 bg-white/[0.03] flex items-center justify-center group-hover:border-white/30 transition-colors">
-                  <FileText className="w-5 h-5 text-zinc-300 group-hover:text-white" />
-                </div>
-                <div>
-                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest block">
-                    ENGINEERING DOSSIER
-                  </span>
-                  <h4 className="font-display text-lg font-bold text-white group-hover:text-chrome transition-colors">
-                    Curriculum Vitae
-                  </h4>
-                  <span className="font-mono text-xs text-zinc-400">
-                    BTech CSE • 2nd Year (SRKR)
-                  </span>
-                </div>
-              </div>
+              <p className="text-xs font-sans text-muted-steel leading-relaxed mb-4">
+                Structured technical resume outlining projects, coursework, hackathons, and systems experience.
+              </p>
               <a
-                href={`mailto:${PERSONAL_INFO.email}?subject=Requesting%20Yaswanth%27s%20Resume`}
-                className="px-3.5 py-1.5 rounded border border-white/20 hover:border-white/40 bg-white/[0.04] text-xs font-mono uppercase tracking-wider text-zinc-300 hover:text-white transition-colors"
+                href="#contact-section"
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert("Resume document available upon request via direct transmission: " + PERSONAL_INFO.email);
+                }}
+                className="inline-flex items-center justify-between w-full px-4 py-2 border border-lab hover:border-signal-orange bg-surface-dark font-mono text-xs text-warm-white hover:text-signal-orange transition-all"
               >
-                Request
+                <span>Request Formal Resume</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
+          </div>
+        </div>
 
-            {/* Location & Status Info */}
-            <div className="p-6 rounded border border-white/[0.06] bg-black/40 text-xs font-mono space-y-2">
-              <div className="flex items-center justify-between text-zinc-400">
-                <span className="flex items-center gap-2">
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>LOCATION</span>
-                </span>
-                <span className="text-zinc-200">{PERSONAL_INFO.location}</span>
-              </div>
-              <div className="flex items-center justify-between text-zinc-400">
-                <span>TIMEZONE</span>
-                <span className="text-zinc-200">{PERSONAL_INFO.timezone}</span>
-              </div>
-              <div className="flex items-center justify-between text-zinc-400">
-                <span>EDUCATION</span>
-                <span className="text-zinc-200">SRKR Engg College</span>
-              </div>
-            </div>
+        {/* Technical Colophon & Footer */}
+        <div className="pt-8 border-t border-lab flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted-steel">
+          <div className="flex items-center gap-3">
+            <span className="w-1.5 h-1.5 bg-signal-orange" />
+            <span>INTERACTIVE ENGINEERING LAB // YASWANTH</span>
+          </div>
+          <div>
+            <span>SYSTEM REVISION: 2.0 // THREE.JS + R3F + GSAP</span>
           </div>
         </div>
       </div>
-
-      {/* Global Minimalist Footer */}
-      <footer className="w-full pt-8 pb-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-400">
-        <div className="flex items-center gap-3">
-          <span className="text-zinc-400">© 2026 YASWANTH</span>
-          <span className="text-zinc-400">•</span>
-          <span>SRKR CSE</span>
-        </div>
-        <div className="flex items-center gap-6">
-          <span>CHROME / CINEMATIC 3D ENGINE</span>
-          <span className="hidden sm:inline text-zinc-400">•</span>
-          <span className="hidden sm:inline text-zinc-400">REACT THREE FIBER & GSAP</span>
-        </div>
-      </footer>
     </section>
   );
 };

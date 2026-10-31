@@ -6,11 +6,11 @@ export const GrainOverlay: React.FC = () => {
       {/* Film grain noise overlay */}
       <div className="grain-overlay" aria-hidden="true" />
       
-      {/* Deep cinematic vignette & subtle atmospheric depth */}
+      {/* Deep laboratory vignette & subtle atmospheric depth */}
       <div 
         className="fixed inset-0 pointer-events-none z-[5]"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, transparent 60%, rgba(6, 6, 8, 0.8) 100%)',
+          background: 'radial-gradient(circle at 50% 50%, transparent 65%, rgba(8, 9, 10, 0.7) 100%)',
         }}
         aria-hidden="true"
       />

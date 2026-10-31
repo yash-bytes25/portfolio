@@ -4,40 +4,40 @@ import { Environment } from '@react-three/drei';
 export const StudioLighting: React.FC = () => {
   return (
     <>
-      {/* Deep atmospheric ambient base - keeps shadows deep and rich */}
-      <ambientLight intensity={0.35} color="#0c0e14" />
+      {/* Deep laboratory baseline ambient light */}
+      <ambientLight intensity={0.4} color="#101214" />
 
-      {/* Main Key Rim Light - Razor-sharp chrome specular highlight */}
+      {/* Main Specular Key Light (Warm White) */}
       <directionalLight
-        position={[5, 8, 4]}
-        intensity={3.0}
-        color="#ffffff"
+        position={[6, 8, 5]}
+        intensity={2.8}
+        color="#F1F0EA"
       />
 
-      {/* Cold Steel Edge Backlight - High-contrast silhouette separation */}
+      {/* Rim / Silhouette Separator (Muted Steel) */}
       <directionalLight
-        position={[-6, 2, -5]}
-        intensity={2.2}
-        color="#93c5fd"
+        position={[-6, -2, -4]}
+        intensity={1.8}
+        color="#8C9298"
       />
 
-      {/* Titanium Warm Accent Fill - Adds chromatic depth to metallic surfaces */}
+      {/* Signal Orange Technical Accent Light (Diagnostic Core Glow) */}
       <pointLight
-        position={[-3.5, 4.5, 3]}
-        intensity={1.1}
-        color="#f59e0b"
-        distance={14}
+        position={[0, 0, 0]}
+        intensity={2.0}
+        color="#FF5A1F"
+        distance={6}
         decay={2}
       />
 
-      {/* Subtle Under-Bounce - Volumetric presence without washing out blacks */}
+      {/* Secondary Fill Light */}
       <directionalLight
-        position={[0, -6, 2]}
-        intensity={0.6}
-        color="#334155"
+        position={[0, 6, -2]}
+        intensity={0.8}
+        color="#495057"
       />
 
-      {/* High-fidelity studio reflections */}
+      {/* Studio HDRI for realistic PBR metal reflections */}
       <Environment preset="studio" />
     </>
   );

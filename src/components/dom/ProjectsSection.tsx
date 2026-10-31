@@ -1,8 +1,17 @@
 import React from 'react';
-import { PROJECTS, HACKATHONS } from '../../data/portfolioData';
-import { Award, CheckCircle2, ShieldAlert, Cpu, Terminal, Code2 } from 'lucide-react';
+import { PROJECTS } from '../../data/portfolioData';
+import {
+  Award,
+  CheckCircle2,
+  Cpu,
+  Code2,
+  Smartphone,
+  Workflow
+} from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
+  const [kisansetu, inkloom, safecampus] = PROJECTS;
+
   return (
     <section
       id="projects-section"
@@ -10,318 +19,394 @@ export const ProjectsSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-lab pb-6 mb-20">
           <div>
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-400">
-                03 // ARCHITECTED WORK
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-signal-orange font-mono text-xs font-bold">[03]</span>
+              <span className="font-mono text-xs uppercase tracking-widest text-muted-steel">
+                // BENCHMARK EXPERIMENTS
               </span>
             </div>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-white">
-              Selected <span className="text-chrome">Projects</span>
+            <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-warm-white">
+              Project <span className="text-signal-orange">Experiments</span>
             </h2>
           </div>
-          <div className="max-w-md">
-            <p className="text-sm font-sans text-zinc-400 leading-relaxed">
-              Real-world systems engineered to resolve tangible inefficiencies — from national hackathon logistics to AI-driven brand compliance engines.
+          <div className="max-w-md p-3.5 border border-lab bg-surface-dark/85 backdrop-blur-md">
+            <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+              Three primary engineering builds with distinct architectural paradigms — spanning agricultural procurement logistics, AI brand governance, and native mobile software lifecycles.
             </p>
           </div>
         </div>
 
-        {/* Project 1: KisanSetu (Large Feature Card) */}
-        <div
-          id="project-kisansetu"
-          className="mb-20 scroll-mt-24"
-        >
-          <div className="chrome-card tech-bracket p-8 md:p-12 rounded-lg border border-white/[0.1] bg-[#0c0d13]/80">
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-white/[0.08]">
+        {/* ========================================================= */}
+        {/* PROJECT 01 — KISANSETU (Logistics & Scheduling Platform) */}
+        {/* ========================================================= */}
+        <div id="project-kisansetu" className="mb-28 scroll-mt-24">
+          <div className="lab-panel tech-corners p-8 md:p-12 border-lab hover:border-signal-orange/50 transition-colors">
+            {/* Project Header Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-lab mb-8">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs text-zinc-400 tracking-widest uppercase">
-                  PROJECT 01 // SIH INTERNAL ROUND
+                <span className="px-2.5 py-1 border border-signal-orange bg-signal-orange/10 font-mono text-xs text-signal-orange font-bold">
+                  {kisansetu.specCode}
                 </span>
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-xs font-mono text-emerald-400">Validated Architecture</span>
+                <span className="font-mono text-xs text-muted-steel uppercase tracking-widest hidden sm:inline">
+                  {kisansetu.category}
+                </span>
               </div>
-              <div className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-zinc-300">
-                {PROJECTS[0].period}
+              <div className="flex items-center gap-2 px-3 py-1 border border-signal-orange/30 bg-signal-orange/5 font-mono text-xs text-signal-orange">
+                <Award className="w-3.5 h-3.5" />
+                <span>{kisansetu.status}</span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div className="lg:col-span-7">
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-3">
-                  {PROJECTS[0].title}
-                </h3>
-                <p className="font-mono text-sm text-zinc-300 mb-6">
-                  {PROJECTS[0].tagline}
-                </p>
-
-                <p className="text-sm sm:text-base font-sans text-zinc-400 leading-relaxed mb-6">
-                  {PROJECTS[0].description}
-                </p>
-
-                {/* Highlight banner */}
-                <div className="p-4 rounded bg-white/[0.02] border border-white/[0.08] mb-8 flex items-start gap-3">
-                  <Award className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-mono text-xs uppercase tracking-wider text-amber-300 block mb-1">
-                      Hackathon Recognition
-                    </span>
-                    <p className="text-xs text-zinc-300 font-sans">
-                      {PROJECTS[0].highlight}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Key Features */}
-                <div className="space-y-2.5 mb-8">
-                  <span className="font-mono text-xs uppercase tracking-widest text-zinc-400 block mb-2">
-                    CORE SYSTEM CAPABILITIES
-                  </span>
-                  {PROJECTS[0].keyFeatures.map((feat, i) => (
-                    <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-300">
-                      <CheckCircle2 className="w-4 h-4 text-zinc-400 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-2">
-                  {PROJECTS[0].techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 rounded text-xs font-mono bg-white/[0.03] text-zinc-300 border border-white/[0.08]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Architecture Blueprint column */}
-              <div className="lg:col-span-5 bg-black/40 border border-white/[0.08] rounded p-6 font-mono text-xs">
-                <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] mb-4">
-                  <span className="text-[11px] text-zinc-400 uppercase tracking-widest">
-                    SYSTEM ARCHITECTURE
-                  </span>
-                  <Terminal className="w-3.5 h-3.5 text-zinc-400" />
-                </div>
-                <div className="space-y-4">
-                  {PROJECTS[0].architectureDetails.map((detail, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <span className="text-zinc-600 mt-0.5">0{idx + 1}.</span>
-                      <p className="text-zinc-300 text-xs leading-relaxed font-sans">
-                        {detail}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-zinc-400">
-                  <span>PROBLEM: FARMER WAITING TIMES</span>
-                  <span>SYSTEM: DIGITAL TOKEN SCHEDULING</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Project 2: Inkloom AI (Large Feature Card) */}
-        <div
-          id="project-inkloom"
-          className="mb-20 scroll-mt-24"
-        >
-          <div className="chrome-card tech-bracket p-8 md:p-12 rounded-lg border border-white/[0.1] bg-[#0c0d13]/80">
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-white/[0.08]">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs text-zinc-400 tracking-widest uppercase">
-                  PROJECT 02 // APPLIED AI & GOVERNANCE
-                </span>
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                <span className="text-xs font-mono text-cyan-400">Dual Engine Design</span>
-              </div>
-              <div className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-zinc-300">
-                {PROJECTS[1].period}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div className="lg:col-span-7">
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-3">
-                  {PROJECTS[1].title}
-                </h3>
-                <p className="font-mono text-sm text-cyan-300/80 mb-6">
-                  {PROJECTS[1].tagline}
-                </p>
-
-                <p className="text-sm sm:text-base font-sans text-zinc-400 leading-relaxed mb-6">
-                  {PROJECTS[1].description}
-                </p>
-
-                {/* Highlight banner */}
-                <div className="p-4 rounded bg-white/[0.02] border border-white/[0.08] mb-8 flex items-start gap-3">
-                  <Cpu className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-mono text-xs uppercase tracking-wider text-cyan-300 block mb-1">
-                      Core Innovation
-                    </span>
-                    <p className="text-xs text-zinc-300 font-sans">
-                      {PROJECTS[1].highlight}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Key Features */}
-                <div className="space-y-2.5 mb-8">
-                  <span className="font-mono text-xs uppercase tracking-widest text-zinc-400 block mb-2">
-                    GOVERNANCE PIPELINE
-                  </span>
-                  {PROJECTS[1].keyFeatures.map((feat, i) => (
-                    <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-300">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400/80 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-2">
-                  {PROJECTS[1].techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 rounded text-xs font-mono bg-white/[0.03] text-zinc-300 border border-white/[0.08]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Architecture Blueprint column */}
-              <div className="lg:col-span-5 bg-black/40 border border-white/[0.08] rounded p-6 font-mono text-xs">
-                <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] mb-4">
-                  <span className="text-[11px] text-zinc-400 uppercase tracking-widest">
-                    DUAL-ENGINE SPECIFICATION
-                  </span>
-                  <ShieldAlert className="w-3.5 h-3.5 text-zinc-400" />
-                </div>
-                <div className="space-y-4">
-                  {PROJECTS[1].architectureDetails.map((detail, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <span className="text-cyan-600 mt-0.5">0{idx + 1}.</span>
-                      <p className="text-zinc-300 text-xs leading-relaxed font-sans">
-                        {detail}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-zinc-400">
-                  <span>ZERO-HALLUCINATION POLICY</span>
-                  <span>COMPLIANCE GATE</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Project 3: SafeCampus & Hackathon Matrix */}
-        <div
-          id="project-safecampus"
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 scroll-mt-24"
-        >
-          {/* SafeCampus */}
-          <div className="lg:col-span-6 chrome-card tech-bracket p-8 rounded-lg border border-white/[0.1] bg-[#0c0d13]/80 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
-                <span className="font-mono text-xs text-zinc-400 tracking-widest uppercase">
-                  PROJECT 03 // MOBILE ENGINEERING
-                </span>
-                <span className="px-2.5 py-0.5 rounded bg-white/[0.04] text-[11px] font-mono text-zinc-400">
-                  {PROJECTS[2].period}
-                </span>
-              </div>
-
-              <h3 className="font-display text-2xl font-bold text-white mb-2">
-                {PROJECTS[2].title}
+            {/* Title & Subtitle */}
+            <div className="mb-8">
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-warm-white uppercase">
+                {kisansetu.title}
               </h3>
-              <p className="font-mono text-xs text-zinc-400 mb-4">
-                {PROJECTS[2].tagline}
+              <p className="font-mono text-sm sm:text-base text-signal-orange mt-1">
+                {kisansetu.subtitle}
               </p>
-
-              <p className="text-xs sm:text-sm font-sans text-zinc-400 leading-relaxed mb-6">
-                {PROJECTS[2].description}
-              </p>
-
-              <div className="space-y-2 mb-6">
-                {PROJECTS[2].architectureDetails.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            <div>
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-white/[0.06]">
-                {PROJECTS[2].techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 py-1 rounded text-[11px] font-mono bg-white/[0.03] text-zinc-400 border border-white/[0.06]"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Hackathons Record (Accurate and Transparent) */}
-          <div className="lg:col-span-6 chrome-card tech-bracket p-8 rounded-lg border border-white/[0.1] bg-[#0c0d13]/80 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
-                <span className="font-mono text-xs text-zinc-400 tracking-widest uppercase">
-                  HACKATHONS // COMPETITIVE ARENA
+            {/* SIH Recognition Callout */}
+            <div className="p-4 border-l-2 border-signal-orange bg-surface-dark border-y border-r border-lab-subtle mb-8 flex items-start gap-3">
+              <Award className="w-5 h-5 text-signal-orange shrink-0 mt-0.5" />
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-warm-white font-semibold block">
+                  Hackathon Selection Benchmark
                 </span>
-                <Code2 className="w-4 h-4 text-zinc-400" />
-              </div>
-
-              <h3 className="font-display text-2xl font-bold text-white mb-2">
-                Rapid Prototyping & Execution
-              </h3>
-              <p className="text-xs font-sans text-zinc-400 leading-relaxed mb-6">
-                Testing engineering skills under pressure, solving unscripted problems, and delivering working software against real deadlines.
-              </p>
-
-              <div className="space-y-4">
-                {HACKATHONS.map((h, i) => (
-                  <div
-                    key={i}
-                    className="p-4 rounded bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-colors"
-                  >
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="font-display text-sm font-bold text-white">
-                        {h.name}
-                      </span>
-                      <span className="font-mono text-[10px] text-zinc-400 px-2 py-0.5 rounded bg-white/[0.04]">
-                        {h.year}
-                      </span>
-                    </div>
-                    <div className="text-xs font-mono text-emerald-400/90 mb-1">
-                      {h.context}
-                    </div>
-                    <p className="text-xs text-zinc-400 font-sans leading-relaxed">
-                      {h.focus}
-                    </p>
-                  </div>
-                ))}
+                <p className="text-xs font-sans text-muted-steel mt-0.5">
+                  {kisansetu.highlight} — evaluated for supply chain efficiency and elimination of physical procurement queues.
+                </p>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-white/[0.06] mt-6">
-              <span className="text-[11px] font-mono text-zinc-400">
-                VERIFIED SUBMISSIONS // REAL-WORLD IMPLEMENTATIONS ONLY
+            {/* Problem & Solution Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 pb-8 border-b border-lab-subtle">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-signal-orange block mb-2">
+                  THE OPERATIONAL PROBLEM
+                </span>
+                <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+                  {kisansetu.problem}
+                </p>
+              </div>
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-warm-white block mb-2">
+                  THE ARCHITECTED SOLUTION
+                </span>
+                <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+                  {kisansetu.solution}
+                </p>
+              </div>
+            </div>
+
+            {/* Key Capabilities */}
+            <div className="mb-10">
+              <span className="font-mono text-xs uppercase tracking-widest text-warm-white block mb-4">
+                CORE SYSTEM CAPABILITIES:
               </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {kisansetu.keyCapabilities.map((cap, i) => (
+                  <div key={i} className="flex items-start gap-2.5 p-3 border border-lab-subtle bg-surface-dark/70">
+                    <CheckCircle2 className="w-4 h-4 text-signal-orange shrink-0 mt-0.5" />
+                    <span className="text-xs font-sans text-warm-white/90 leading-snug">
+                      {cap}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Engineering Decisions & Tech Stack Footer */}
+            <div className="pt-6 border-t border-lab flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-steel block mb-2">
+                  ENGINEERING DECISIONS
+                </span>
+                <ul className="space-y-1 text-xs font-mono text-muted-steel">
+                  {kisansetu.engineeringDecisions.map((dec, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <span className="text-signal-orange">›</span>
+                      <span>{dec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 shrink-0">
+                <div className="flex flex-wrap gap-2">
+                  {kisansetu.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 border border-lab bg-surface-dark font-mono text-[11px] text-warm-white"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={kisansetu.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-signal-orange bg-signal-orange/10 hover:bg-signal-orange text-warm-white hover:text-deep-black font-mono text-xs uppercase tracking-wider transition-all"
+                >
+                  <Code2 className="w-3.5 h-3.5" />
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================================= */}
+        {/* PROJECT 02 — INKLOOM AI (Dual-Engine Brand Governance) */}
+        {/* ========================================================= */}
+        <div id="project-inkloom" className="mb-28 scroll-mt-24">
+          <div className="lab-panel tech-corners p-8 md:p-12 border-lab hover:border-signal-orange/50 transition-colors">
+            {/* Project Header Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-lab mb-8">
+              <div className="flex items-center gap-3">
+                <span className="px-2.5 py-1 border border-signal-orange bg-signal-orange/10 font-mono text-xs text-signal-orange font-bold">
+                  {inkloom.specCode}
+                </span>
+                <span className="font-mono text-xs text-muted-steel uppercase tracking-widest hidden sm:inline">
+                  {inkloom.category}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1 border border-lab bg-surface-dark font-mono text-xs text-warm-white">
+                <Cpu className="w-3.5 h-3.5 text-signal-orange" />
+                <span>{inkloom.status}</span>
+              </div>
+            </div>
+
+            {/* Title & Subtitle */}
+            <div className="mb-8">
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-warm-white uppercase">
+                {inkloom.title}
+              </h3>
+              <p className="font-mono text-sm sm:text-base text-signal-orange mt-1">
+                {inkloom.subtitle}
+              </p>
+            </div>
+
+            {/* Architectural Deep-Dive: Dual-Engine Schema */}
+            <div className="p-6 border border-lab bg-surface-dark mb-10">
+              <div className="flex items-center gap-2 mb-4">
+                <Workflow className="w-4 h-4 text-signal-orange" />
+                <span className="font-mono text-xs uppercase tracking-widest text-warm-white font-bold">
+                  ARCHITECTURAL PARADIGM // DUAL-ENGINE GOVERNANCE
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed mb-6">
+                To eliminate LLM hallucinations while preserving stylistic flexibility, Inkloom AI partitions editorial review into two distinct, decoupled pipelines:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 border border-signal-orange/30 bg-[#16191c]">
+                  <div className="flex items-center gap-2 mb-2 font-mono text-xs font-bold text-signal-orange">
+                    <span>ENGINE A: DETERMINISTIC RULES</span>
+                  </div>
+                  <p className="text-xs font-sans text-muted-steel leading-relaxed">
+                    Zero-hallucination statutory verification. Validates publication drafts against verified corporate fact sheets, regulatory constraints, and strict keyword substitution dictionaries without probabilistic error.
+                  </p>
+                </div>
+
+                <div className="p-4 border border-lab bg-[#16191c]">
+                  <div className="flex items-center gap-2 mb-2 font-mono text-xs font-bold text-warm-white">
+                    <span>ENGINE B: CONTEXTUAL AI ANALYSIS</span>
+                  </div>
+                  <p className="text-xs font-sans text-muted-steel leading-relaxed">
+                    Evaluates brand voice alignment, audience appropriateness, tone nuance, and messaging sentiment using language analysis models. Surfaces actionable suggestions directly within authoring workflows.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Problem & Solution */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 pb-8 border-b border-lab-subtle">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-signal-orange block mb-2">
+                  THE COMPLIANCE PROBLEM
+                </span>
+                <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+                  {inkloom.problem}
+                </p>
+              </div>
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-warm-white block mb-2">
+                  THE PLATFORM SOLUTION
+                </span>
+                <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+                  {inkloom.solution}
+                </p>
+              </div>
+            </div>
+
+            {/* Key Capabilities */}
+            <div className="mb-10">
+              <span className="font-mono text-xs uppercase tracking-widest text-warm-white block mb-4">
+                SYSTEM CAPABILITIES & GOVERNANCE CHECKS:
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {inkloom.keyCapabilities.map((cap, i) => (
+                  <div key={i} className="flex items-start gap-2.5 p-3 border border-lab-subtle bg-surface-dark/70">
+                    <CheckCircle2 className="w-4 h-4 text-signal-orange shrink-0 mt-0.5" />
+                    <span className="text-xs font-sans text-warm-white/90 leading-snug">
+                      {cap}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Engineering Decisions & Tech Stack Footer */}
+            <div className="pt-6 border-t border-lab flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-steel block mb-2">
+                  ENGINEERING DECISIONS & SECURITY
+                </span>
+                <ul className="space-y-1 text-xs font-mono text-muted-steel">
+                  {inkloom.engineeringDecisions.map((dec, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <span className="text-signal-orange">›</span>
+                      <span>{dec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 shrink-0">
+                <div className="flex flex-wrap gap-2">
+                  {inkloom.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 border border-lab bg-surface-dark font-mono text-[11px] text-warm-white"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={inkloom.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-signal-orange bg-signal-orange/10 hover:bg-signal-orange text-warm-white hover:text-deep-black font-mono text-xs uppercase tracking-wider transition-all"
+                >
+                  <Code2 className="w-3.5 h-3.5" />
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================================= */}
+        {/* PROJECT 03 — SAFECAMPUS (Foundational Android Application) */}
+        {/* ========================================================= */}
+        <div id="project-safecampus" className="scroll-mt-24">
+          <div className="lab-panel tech-corners p-8 md:p-12 border-lab hover:border-signal-orange/50 transition-colors">
+            {/* Project Header Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-lab mb-8">
+              <div className="flex items-center gap-3">
+                <span className="px-2.5 py-1 border border-signal-orange bg-signal-orange/10 font-mono text-xs text-signal-orange font-bold">
+                  {safecampus.specCode}
+                </span>
+                <span className="font-mono text-xs text-muted-steel uppercase tracking-widest hidden sm:inline">
+                  {safecampus.category}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1 border border-lab bg-surface-dark font-mono text-xs text-muted-steel">
+                <Smartphone className="w-3.5 h-3.5 text-signal-orange" />
+                <span>{safecampus.status}</span>
+              </div>
+            </div>
+
+            {/* Title & Subtitle */}
+            <div className="mb-8">
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-warm-white uppercase">
+                {safecampus.title}
+              </h3>
+              <p className="font-mono text-sm sm:text-base text-signal-orange mt-1">
+                {safecampus.subtitle}
+              </p>
+            </div>
+
+            {/* Problem & Solution */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 pb-8 border-b border-lab-subtle">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-signal-orange block mb-2">
+                  THE FIRST-YEAR PROBLEM
+                </span>
+                <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+                  {safecampus.problem}
+                </p>
+              </div>
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-warm-white block mb-2">
+                  THE APPLICATION ARCHITECTURE
+                </span>
+                <p className="text-xs sm:text-sm font-sans text-muted-steel leading-relaxed">
+                  {safecampus.solution}
+                </p>
+              </div>
+            </div>
+
+            {/* Key Capabilities */}
+            <div className="mb-10">
+              <span className="font-mono text-xs uppercase tracking-widest text-warm-white block mb-4">
+                FOUNDATIONAL SOFTWARE CAPABILITIES:
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {safecampus.keyCapabilities.map((cap, i) => (
+                  <div key={i} className="flex items-start gap-2.5 p-3 border border-lab-subtle bg-surface-dark/70">
+                    <CheckCircle2 className="w-4 h-4 text-signal-orange shrink-0 mt-0.5" />
+                    <span className="text-xs font-sans text-warm-white/90 leading-snug">
+                      {cap}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Engineering Decisions & Tech Stack Footer */}
+            <div className="pt-6 border-t border-lab flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-steel block mb-2">
+                  ENGINEERING LESSONS LEARNED
+                </span>
+                <ul className="space-y-1 text-xs font-mono text-muted-steel">
+                  {safecampus.engineeringDecisions.map((dec, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <span className="text-signal-orange">›</span>
+                      <span>{dec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 shrink-0">
+                <div className="flex flex-wrap gap-2">
+                  {safecampus.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 border border-lab bg-surface-dark font-mono text-[11px] text-warm-white"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={safecampus.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-lab bg-surface-dark hover:border-signal-orange text-warm-white font-mono text-xs uppercase tracking-wider transition-all"
+                >
+                  <Code2 className="w-3.5 h-3.5 text-muted-steel" />
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

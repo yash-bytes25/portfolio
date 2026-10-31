@@ -1,19 +1,28 @@
 export interface Project {
   id: string;
+  specCode: string;
   title: string;
-  tagline: string;
+  subtitle: string;
   category: string;
   period: string;
   status: string;
-  description: string;
-  highlight?: string;
-  architectureDetails: string[];
-  keyFeatures: string[];
+  problem: string;
+  solution: string;
+  keyCapabilities: string[];
+  engineeringDecisions: string[];
+  highlight: string;
   techStack: string[];
-  links?: {
-    github?: string;
-    demo?: string;
-  };
+  repoUrl: string;
+  isPlaceholderRepo: boolean;
+}
+
+export interface SkillMatrixItem {
+  name: string;
+  tier: 'Currently Learning' | 'Practiced Through Projects' | 'Areas of Interest';
+  category: string;
+  code: string;
+  application: string;
+  evidence: string;
 }
 
 export interface HackathonExperience {
@@ -22,17 +31,7 @@ export interface HackathonExperience {
   year: string;
   context: string;
   focus: string;
-  projectAssociated?: string;
-}
-
-export interface SkillCategory {
-  title: string;
-  code: string;
-  items: {
-    name: string;
-    focus: string;
-    status: 'Core' | 'Active Study' | 'Applied';
-  }[];
+  projectAssociated: string;
 }
 
 export interface JourneyMilestone {
@@ -43,4 +42,3 @@ export interface JourneyMilestone {
   takeaway: string;
   tags: string[];
 }
-
