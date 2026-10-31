@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#060608"/>
+  <path d="M16 16L32 38L48 16H38L32 25L26 16H16Z" fill="url(#metal_grad)"/>
+  <path d="M29 34V48H35V34H29Z" fill="url(#metal_grad)"/>
+  <circle cx="32" cy="53" r="2.5" fill="#e2b714"/>
+  <defs>
+    <linearGradient id="metal_grad" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#C7CCD6"/>
+      <stop offset="0.75" stop-color="#6E778A"/>
+      <stop offset="1" stop-color="#E2E5EB"/>
+    </linearGradient>
+  </defs>
+</svg>
+

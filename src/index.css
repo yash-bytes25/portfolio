@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+/* Chrome / Cinematic Global Overrides */
+html {
+  background-color: #060608;
+  color: #e2e5eb;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #060608;
+  user-select: text;
+}
+
+/* Custom Scrollbar for high-end feel */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252830;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #474d5c;
+}
+
+/* Subtle Film Grain Shader Overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Chrome Text Gradient */
+.text-chrome {
+  background: linear-gradient(135deg, #ffffff 0%, #d8dde6 35%, #7a8292 70%, #d8dde6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-chrome-bright {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd2df 60%, #8f98a8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-chrome-muted {
+  background: linear-gradient(180deg, #9da4b3 0%, #5d6371 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Fine hairline borders */
+.border-hairline {
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.border-hairline-bright {
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Subtle glass/metal backing without generic blur */
+.chrome-card {
+  background: rgba(13, 13, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chrome-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(18, 18, 25, 0.85);
+}
+
+/* Corner bracket accents for editorial technical aesthetic */
+.tech-bracket {
+  position: relative;
+}
+
+.tech-bracket::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.tech-bracket::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
