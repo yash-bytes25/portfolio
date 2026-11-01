@@ -21,16 +21,16 @@ export const useScrollExperience = () => {
         scrub: prefersReducedMotion ? false : 1.0,
         onUpdate: (self) => {
           const p = self.progress;
-          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.35, isMobile ? 0 : 1.25, p);
+          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.85, isMobile ? 0 : 1.85, p);
           labSceneState.targetY = gsap.utils.interpolate(0, 0.15, p);
-          labSceneState.targetZ = gsap.utils.interpolate(0, 0.8, p); // Moves closer
+          labSceneState.targetZ = gsap.utils.interpolate(-0.2, 0.6, p); // Moves closer
           labSceneState.targetRotX = gsap.utils.interpolate(0.15, 0.45, p);
           labSceneState.targetRotY = gsap.utils.interpolate(0, prefersReducedMotion ? 0.3 : 1.6, p);
           labSceneState.targetRotZ = gsap.utils.interpolate(0, 0.1, p);
-          labSceneState.inspectionExpansion = gsap.utils.interpolate(0, 1.0, p); // Reveals internal components
+          labSceneState.inspectionExpansion = gsap.utils.interpolate(0, 0.9, p); // Reveals internal components
           labSceneState.organizationMode = 0;
           labSceneState.wireframeMix = gsap.utils.interpolate(0, 0.05, p);
-          labSceneState.scale = gsap.utils.interpolate(1.0, 1.05, p);
+          labSceneState.scale = gsap.utils.interpolate(0.9, 0.95, p);
         },
       });
 
@@ -42,19 +42,19 @@ export const useScrollExperience = () => {
         scrub: prefersReducedMotion ? false : 1.0,
         onUpdate: (self) => {
           const p = self.progress;
-          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.25, isMobile ? 0 : 1.35, p);
+          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.85, isMobile ? 0 : 1.85, p);
           labSceneState.targetY = gsap.utils.interpolate(0.15, -0.05, p);
-          labSceneState.targetZ = gsap.utils.interpolate(0.8, 0.2, p);
+          labSceneState.targetZ = gsap.utils.interpolate(0.6, 0.1, p);
           labSceneState.targetRotX = gsap.utils.interpolate(0.45, -0.15, p);
           labSceneState.targetRotY = gsap.utils.interpolate(
             prefersReducedMotion ? 0.3 : 1.6,
             prefersReducedMotion ? 0.6 : 2.8,
             p
           );
-          labSceneState.inspectionExpansion = gsap.utils.interpolate(1.0, 0.35, p); // Reorganizes
+          labSceneState.inspectionExpansion = gsap.utils.interpolate(0.9, 0.3, p); // Reorganizes
           labSceneState.organizationMode = gsap.utils.interpolate(0, 1.0, p);
           labSceneState.wireframeMix = gsap.utils.interpolate(0.05, 0.1, p);
-          labSceneState.scale = 1.0;
+          labSceneState.scale = 0.92;
         },
       });
 
@@ -66,7 +66,7 @@ export const useScrollExperience = () => {
         scrub: prefersReducedMotion ? false : 1.0,
         onUpdate: (self) => {
           const p = self.progress;
-          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.35, isMobile ? 0 : -1.35, p);
+          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.85, isMobile ? 0 : -1.85, p);
           labSceneState.targetRotY = gsap.utils.interpolate(
             prefersReducedMotion ? 0.6 : 2.8,
             prefersReducedMotion ? 0.9 : 4.2,
@@ -83,7 +83,7 @@ export const useScrollExperience = () => {
         scrub: prefersReducedMotion ? false : 1.0,
         onUpdate: (self) => {
           const p = self.progress;
-          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : -1.35, isMobile ? 0 : 1.3, p);
+          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : -1.85, isMobile ? 0 : 1.85, p);
           labSceneState.targetRotY = gsap.utils.interpolate(
             prefersReducedMotion ? 0.9 : 4.2,
             prefersReducedMotion ? 1.2 : 5.4,
@@ -101,19 +101,19 @@ export const useScrollExperience = () => {
         scrub: prefersReducedMotion ? false : 1.0,
         onUpdate: (self) => {
           const p = self.progress;
-          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.3, 0, p);
-          labSceneState.targetY = gsap.utils.interpolate(-0.05, 0.08, p);
-          labSceneState.targetZ = gsap.utils.interpolate(0.2, 0.3, p);
+          labSceneState.targetX = gsap.utils.interpolate(isMobile ? 0 : 1.85, 0, p);
+          labSceneState.targetY = gsap.utils.interpolate(-0.05, 0.05, p);
+          labSceneState.targetZ = gsap.utils.interpolate(0.1, -1.0, p);
           labSceneState.targetRotX = gsap.utils.interpolate(-0.15, 0.35, p);
           labSceneState.targetRotY = gsap.utils.interpolate(
             prefersReducedMotion ? 1.2 : 5.4,
             prefersReducedMotion ? 1.5 : 6.28,
             p
           );
-          labSceneState.inspectionExpansion = gsap.utils.interpolate(0.35, 0.7, p);
+          labSceneState.inspectionExpansion = gsap.utils.interpolate(0.3, 0.6, p);
           labSceneState.organizationMode = gsap.utils.interpolate(1.0, 0.5, p);
-          labSceneState.wireframeMix = gsap.utils.interpolate(0.1, 1.0, p); // Wireframe blueprint mode
-          labSceneState.scale = gsap.utils.interpolate(1.0, 1.15, p);
+          labSceneState.wireframeMix = gsap.utils.interpolate(0.1, 0.85, p); // Wireframe blueprint mode
+          labSceneState.scale = gsap.utils.interpolate(0.92, 0.82, p);
         },
       });
 
@@ -126,18 +126,18 @@ export const useScrollExperience = () => {
         onUpdate: (self) => {
           const p = self.progress;
           labSceneState.targetX = 0;
-          labSceneState.targetY = gsap.utils.interpolate(0.08, 0.32, p);
-          labSceneState.targetZ = gsap.utils.interpolate(0.3, -0.3, p);
+          labSceneState.targetY = gsap.utils.interpolate(0.05, 0.22, p);
+          labSceneState.targetZ = gsap.utils.interpolate(-1.0, -1.4, p);
           labSceneState.targetRotX = gsap.utils.interpolate(0.35, 0.1, p);
           labSceneState.targetRotY = gsap.utils.interpolate(
             prefersReducedMotion ? 1.5 : 6.28,
             prefersReducedMotion ? 1.8 : 7.2,
             p
           );
-          labSceneState.inspectionExpansion = gsap.utils.interpolate(0.7, 0, p); // Resolves into unified structure
+          labSceneState.inspectionExpansion = gsap.utils.interpolate(0.6, 0, p); // Resolves into unified structure
           labSceneState.organizationMode = gsap.utils.interpolate(0.5, 0, p);
-          labSceneState.wireframeMix = gsap.utils.interpolate(1.0, 0, p);
-          labSceneState.scale = gsap.utils.interpolate(1.15, 0.9, p);
+          labSceneState.wireframeMix = gsap.utils.interpolate(0.85, 0, p);
+          labSceneState.scale = gsap.utils.interpolate(0.82, 0.72, p);
         },
       });
     });

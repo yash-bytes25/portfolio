@@ -9,7 +9,7 @@ export const HeroSection: React.FC = () => {
       className="relative min-h-[92vh] w-full flex flex-col justify-between pt-36 pb-12 px-6 md:px-16 pointer-events-auto"
     >
       <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center">
-        <div className="max-w-2xl z-20">
+        <div className="max-w-xl z-20">
           {/* Subtle discipline tag */}
           <div className="inline-block text-xs font-sans tracking-wide text-neutral-400 mb-6 font-medium">
             Computer Science & Engineering • B.Tech

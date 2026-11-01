@@ -96,18 +96,18 @@ export const EngineeringStructure: React.FC = () => {
     });
   }, []);
 
-  // Harmonious, Art-Directed Geometries
-  const coreGeometry = useMemo(() => new THREE.IcosahedronGeometry(0.72, 1), []);
-  const coreEdgesGeometry = useMemo(() => new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(0.73, 1)), []);
-  const innerNucleusGeometry = useMemo(() => new THREE.OctahedronGeometry(0.42, 0), []);
+  // Harmonious, Art-Directed Geometries (Proportioned to avoid viewport collision)
+  const coreGeometry = useMemo(() => new THREE.IcosahedronGeometry(0.58, 1), []);
+  const coreEdgesGeometry = useMemo(() => new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(0.59, 1)), []);
+  const innerNucleusGeometry = useMemo(() => new THREE.OctahedronGeometry(0.32, 0), []);
   
-  // Sleek, refined concentric rings with varying inclinations
-  const ring1Geometry = useMemo(() => new THREE.TorusGeometry(1.4, 0.024, 32, 120), []);
-  const ring2Geometry = useMemo(() => new THREE.TorusGeometry(1.78, 0.02, 32, 140), []);
-  const ring3Geometry = useMemo(() => new THREE.TorusGeometry(2.15, 0.016, 32, 160), []);
+  // Sleek, refined concentric rings with calibrated radii
+  const ring1Geometry = useMemo(() => new THREE.TorusGeometry(1.05, 0.02, 32, 120), []);
+  const ring2Geometry = useMemo(() => new THREE.TorusGeometry(1.35, 0.018, 32, 140), []);
+  const ring3Geometry = useMemo(() => new THREE.TorusGeometry(1.65, 0.015, 32, 160), []);
   
-  const satelliteGeometry = useMemo(() => new THREE.SphereGeometry(0.045, 16, 16), []);
-  const wireLatticeGeometry = useMemo(() => new THREE.IcosahedronGeometry(2.35, 1), []);
+  const satelliteGeometry = useMemo(() => new THREE.SphereGeometry(0.038, 16, 16), []);
+  const wireLatticeGeometry = useMemo(() => new THREE.IcosahedronGeometry(1.85, 1), []);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -140,20 +140,28 @@ export const EngineeringStructure: React.FC = () => {
     const time = state.clock.getElapsedTime();
     const speed = prefersReducedMotion ? 0.0 : labSceneState.rotationSpeed;
 
-    // Position interpolation: on mobile, position in lower negative space to keep text 100% clean
-    const effectiveTargetX = isMobile ? 0 : labSceneState.targetX;
-    const effectiveTargetY = isMobile ? -0.55 : labSceneState.targetY;
-    const effectiveTargetZ = isMobile ? -3.0 : labSceneState.targetZ;
-    const effectiveScale = isMobile ? 0.36 : labSceneState.scale * 0.95;
+    // Position interpolation:
+    // Desktop: Anchored comfortably on the right side (>= 1.85) during hero/right states so it never intersects the left-aligned text column
+    // Mobile: Positioned in lower negative space with subtle scale
+    let desktopTargetX = labSceneState.targetX;
+    if (desktopTargetX > 0.5) {
+      desktopTargetX = Math.max(1.85, desktopTargetX);
+    } else if (desktopTargetX < -0.5) {
+      desktopTargetX = Math.min(-1.85, desktopTargetX);
+    }
+    const effectiveTargetX = isMobile ? 0 : desktopTargetX;
+    const effectiveTargetY = isMobile ? -1.55 : labSceneState.targetY;
+    const effectiveTargetZ = isMobile ? -3.2 : labSceneState.targetZ;
+    const effectiveScale = isMobile ? 0.26 : labSceneState.scale * 0.9;
 
     rootGroup.current.position.x = THREE.MathUtils.lerp(
       rootGroup.current.position.x,
-      effectiveTargetX + mouseState.x * 0.15,
+      effectiveTargetX + (isMobile ? 0 : mouseState.x * 0.12),
       0.06
     );
     rootGroup.current.position.y = THREE.MathUtils.lerp(
       rootGroup.current.position.y,
-      effectiveTargetY + mouseState.y * 0.12,
+      effectiveTargetY + mouseState.y * 0.1,
       0.06
     );
     rootGroup.current.position.z = THREE.MathUtils.lerp(
@@ -165,12 +173,12 @@ export const EngineeringStructure: React.FC = () => {
     // Orientation
     rootGroup.current.rotation.x = THREE.MathUtils.lerp(
       rootGroup.current.rotation.x,
-      labSceneState.targetRotX + mouseState.y * 0.18,
+      labSceneState.targetRotX + mouseState.y * 0.15,
       0.05
     );
     rootGroup.current.rotation.y = THREE.MathUtils.lerp(
       rootGroup.current.rotation.y,
-      labSceneState.targetRotY + mouseState.x * 0.22,
+      labSceneState.targetRotY + mouseState.x * 0.18,
       0.05
     );
     rootGroup.current.rotation.z = THREE.MathUtils.lerp(
@@ -251,7 +259,7 @@ export const EngineeringStructure: React.FC = () => {
             key={`r1-sat-${idx}`}
             geometry={satelliteGeometry}
             material={warmAccentMaterial}
-            position={[Math.cos(angle) * 1.4, Math.sin(angle) * 1.4, 0]}
+            position={[Math.cos(angle) * 1.05, Math.sin(angle) * 1.05, 0]}
           />
         ))}
       </group>
@@ -269,9 +277,9 @@ export const EngineeringStructure: React.FC = () => {
             geometry={satelliteGeometry}
             material={brushedSteelMaterial}
             position={[
-              Math.cos(angle) * 1.78,
+              Math.cos(angle) * 1.35,
               0,
-              Math.sin(angle) * 1.78
+              Math.sin(angle) * 1.35
             ]}
           />
         ))}
@@ -287,12 +295,12 @@ export const EngineeringStructure: React.FC = () => {
         <mesh
           geometry={satelliteGeometry}
           material={warmAccentMaterial}
-          position={[2.15, 0, 0]}
+          position={[1.65, 0, 0]}
         />
         <mesh
           geometry={satelliteGeometry}
           material={warmAccentMaterial}
-          position={[-2.15, 0, 0]}
+          position={[-1.65, 0, 0]}
         />
       </group>
 

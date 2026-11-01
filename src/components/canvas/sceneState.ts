@@ -21,7 +21,7 @@ export interface LabSceneState {
 export const labSceneState: LabSceneState = {
   progress: 0,
   section: 0,
-  targetX: 1.35,
+  targetX: 1.85,
   targetY: 0,
   targetZ: 0,
   targetRotX: 0.15,
@@ -31,7 +31,7 @@ export const labSceneState: LabSceneState = {
   organizationMode: 0,
   wireframeMix: 0,
   resolutionMix: 0,
-  scale: 1,
+  scale: 0.95,
   rotationSpeed: 1,
 };
 
