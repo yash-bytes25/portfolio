@@ -13,7 +13,7 @@ export const PERSONAL_INFO = {
   location: "Andhra Pradesh, India",
   timezone: "IST (UTC+5:30)",
   github: "https://github.com/yash-bytes25",
-  linkedin: "https://linkedin.com/in/yaswanth-cse", // Placeholder: update with your personal LinkedIn profile
+  linkedin: "https://www.linkedin.com/in/kundrapu-yaswanth-b67717391",
   email: "kundrapuyaswanth93@gmail.com",
   statement: "Building robust systems through deterministic logic and applied intelligence.",
   focusArea: "AI/ML Exploration • Systems Architecture • Practical Engineering",
