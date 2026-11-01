@@ -1,6 +1,6 @@
 import React from 'react';
 import { PROJECTS } from '../../data/portfolioData';
-import { ArrowUpRight, Award, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, Award, CheckCircle2, Cpu } from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
   const [kisansetu, inkloom, safecampus] = PROJECTS;
@@ -46,6 +46,7 @@ export const ProjectsSection: React.FC = () => {
               {kisansetu.subtitle}
             </p>
 
+            {/* Problem & Solution */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-8 pb-8 border-b border-white/[0.06]">
               <div className="lg:col-span-6 space-y-3">
                 <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-400">
@@ -76,6 +77,22 @@ export const ProjectsSection: React.FC = () => {
                   <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-300">
                     <CheckCircle2 className="w-4 h-4 text-neutral-400 shrink-0 mt-0.5" />
                     <span>{cap}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Engineering Decisions */}
+            <div className="mb-8 p-5 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+              <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-3 flex items-center gap-2">
+                <Cpu className="w-3.5 h-3.5 text-orange-400" />
+                <span>Engineering Decisions</span>
+              </h4>
+              <div className="space-y-2.5">
+                {kisansetu.engineeringDecisions.map((decision, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400/80 shrink-0 mt-1.5" />
+                    <span className="leading-relaxed">{decision}</span>
                   </div>
                 ))}
               </div>
@@ -116,9 +133,10 @@ export const ProjectsSection: React.FC = () => {
               <span className="text-xs font-mono text-neutral-400">
                 02 • {inkloom.category}
               </span>
-              <span className="px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs text-neutral-300">
-                {inkloom.status}
-              </span>
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs text-neutral-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
+                <span>{inkloom.status}</span>
+              </div>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-medium text-white mb-2">
@@ -127,6 +145,27 @@ export const ProjectsSection: React.FC = () => {
             <p className="text-base text-neutral-300 mb-6 font-normal">
               {inkloom.subtitle}
             </p>
+
+            {/* Problem & Solution */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-8 pb-8 border-b border-white/[0.06]">
+              <div className="lg:col-span-6 space-y-3">
+                <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-400">
+                  The Problem
+                </h4>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  {inkloom.problem}
+                </p>
+              </div>
+
+              <div className="lg:col-span-6 space-y-3">
+                <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-300">
+                  The Solution
+                </h4>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  {inkloom.solution}
+                </p>
+              </div>
+            </div>
 
             {/* Architectural Explanation */}
             <div className="my-8 p-6 rounded-lg bg-white/[0.02] border border-white/[0.06]">
@@ -158,6 +197,22 @@ export const ProjectsSection: React.FC = () => {
                   <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-300">
                     <CheckCircle2 className="w-4 h-4 text-neutral-400 shrink-0 mt-0.5" />
                     <span>{cap}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Engineering Decisions */}
+            <div className="mb-8 p-5 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+              <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-3 flex items-center gap-2">
+                <Cpu className="w-3.5 h-3.5 text-orange-400" />
+                <span>Engineering Decisions</span>
+              </h4>
+              <div className="space-y-2.5">
+                {inkloom.engineeringDecisions.map((decision, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400/80 shrink-0 mt-1.5" />
+                    <span className="leading-relaxed">{decision}</span>
                   </div>
                 ))}
               </div>
@@ -210,6 +265,7 @@ export const ProjectsSection: React.FC = () => {
               {safecampus.subtitle}
             </p>
 
+            {/* Problem & Solution */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-8 pb-8 border-b border-white/[0.06]">
               <div className="lg:col-span-6 space-y-3">
                 <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-400">
@@ -240,6 +296,22 @@ export const ProjectsSection: React.FC = () => {
                   <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-300">
                     <CheckCircle2 className="w-4 h-4 text-neutral-400 shrink-0 mt-0.5" />
                     <span>{cap}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Engineering Decisions */}
+            <div className="mb-8 p-5 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+              <h4 className="text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-3 flex items-center gap-2">
+                <Cpu className="w-3.5 h-3.5 text-orange-400" />
+                <span>Engineering Decisions</span>
+              </h4>
+              <div className="space-y-2.5">
+                {safecampus.engineeringDecisions.map((decision, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400/80 shrink-0 mt-1.5" />
+                    <span className="leading-relaxed">{decision}</span>
                   </div>
                 ))}
               </div>

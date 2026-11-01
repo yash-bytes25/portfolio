@@ -47,7 +47,7 @@ export const PROJECTS: Project[] = [
     ],
     highlight: "Selected for Smart India Hackathon (SIH) 2026 Internal Round",
     techStack: ["Python Backend", "DBMS & SQL", "Web Development", "Git & GitHub"],
-    repoUrl: "https://github.com/yash-bytes25",
+    repoUrl: "https://github.com/yash-bytes25/kisansetu",
     isPlaceholderRepo: false
   },
   {
@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Brand Governance & Compliance Platform",
     category: "Applied AI & System Engineering",
     period: "2024",
-    status: "Active Architecture",
+    status: "In Development • Rule Engine & AI Governance Architecture",
     problem:
       "Modern enterprise publishing at scale risks brand erosion, factual drift, and regulatory non-compliance. Pure LLM generation and human drafting both suffer from subtle voice inconsistencies, forbidden phrasing, and unverified factual statements that manual editorial teams cannot review fast enough.",
     solution:
@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
     ],
     highlight: "Dual-Engine Architecture: Deterministic Rules + Contextual AI",
     techStack: ["Python", "Machine Learning", "Contextual AI Analysis", "System Design", "Git & GitHub"],
-    repoUrl: "https://github.com/yash-bytes25",
+    repoUrl: "https://github.com/yash-bytes25/inkloom-ai",
     isPlaceholderRepo: false
   },
   {
@@ -104,7 +104,7 @@ export const PROJECTS: Project[] = [
     ],
     highlight: "Foundational First-Year Software Engineering Project",
     techStack: ["Android Development", "Java", "OOP Principles", "Mobile Lifecycle"],
-    repoUrl: "https://github.com/yash-bytes25",
+    repoUrl: "https://github.com/yash-bytes25/safe-campus-R",
     isPlaceholderRepo: false
   }
 ];
